@@ -16,13 +16,13 @@ def stall_warning(alpha: float) -> str:
 
 # Задача 2: Обробка відповідей вимірювачів (match-case)
 def process_sensor_response(response: dict) -> str:
-    """
-    Зіставляє словник:
-    - {'status': 'ERROR'} -> "Помилка датчика"
-    - {'sensor': 'ALTITUDE', 'value': v} при v < 0 -> "Помилка висотоміра"
-    - {'sensor': name, 'value': v} -> "Датчик {name}: {v}"
-    """
-    ...
+    match response["status"]:
+        case "ERROR":
+            return "Помилка"
+    match response["sensor"]:
+        case "ALTITUDE" if response["value"] < 0:
+            return "Помилка висотоміра"
+
 
 # Задача 3: Видалення дублікатів (for / continue)
 def remove_consecutive_duplicates(data: list) -> list:

@@ -26,11 +26,12 @@ def process_sensor_response(response: dict) -> str:
 
 # Задача 3: Видалення дублікатів (for / continue)
 def remove_consecutive_duplicates(data: list) -> list:
-    """
-    Пройліться по списку data. Якщо поточний елемент дорівнює попередньому,
-    скористайтесь continue. Поверніть очищений список.
-    """
-    ...
+    res = [data[0]]
+    for i in range(1,len(data)):
+        if data[i] != data[i-1]:
+            res.append(data[i])
+    return res
+
 
 # Задача 4: Пошук максимуму перевантаження (enumerate)
 def find_max_overload(g_list: list) -> tuple:

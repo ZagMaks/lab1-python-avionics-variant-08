@@ -35,8 +35,10 @@ def remove_consecutive_duplicates(data: list) -> list:
 
 # Задача 4: Пошук максимуму перевантаження (enumerate)
 def find_max_overload(g_list: list) -> tuple:
-    """
-    За допомогою enumerate знаходить максимальне значення g та його індекс.
-    Повертає кортеж (max_g, max_idx).
-    """
-    ...
+    m = 0
+    j = 0
+    for i,t in enumerate(g_list):
+        if t > m:
+            m = t
+            j = i
+    return m, j

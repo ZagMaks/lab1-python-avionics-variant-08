@@ -20,13 +20,12 @@ print(stall_warning(13))
 print(stall_warning(2))
 # Задача 2: Обробка відповідей вимірювачів (match-case)
 def process_sensor_response(response: dict) -> str:
-    match response["status"]:
-        case "ERROR":
+    match response:
+        case {"status": "ERROR", **rest}:
             return "Помилка"
-    match response["sensor"]:
-        case "ALTITUDE" if response["value"] < 0:
+        case {"sensor":"ALTITUDE", **rest} if response["value"] < 0:
             return "Помилка висотоміра"
-
+print(process_sensor_response({'sensor': "ALTITUDE", 'value': -2, 'status': "ERRO"}))
 
 # Задача 3: Видалення дублікатів (for / continue)
 def remove_consecutive_duplicates(data: list) -> list:

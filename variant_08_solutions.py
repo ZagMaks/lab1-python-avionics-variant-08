@@ -15,9 +15,7 @@ def stall_warning(alpha: float) -> str:
     else:
         k = 2
     return a[k]
-print(stall_warning(20))
-print(stall_warning(13))
-print(stall_warning(2))
+
 # Задача 2: Обробка відповідей вимірювачів (match-case)
 def process_sensor_response(response: dict) -> str:
     match response:
@@ -25,7 +23,6 @@ def process_sensor_response(response: dict) -> str:
             return "Помилка"
         case {"sensor":"ALTITUDE", **rest} if response["value"] < 0:
             return "Помилка висотоміра"
-print(process_sensor_response({'sensor': "ALTITUDE", 'value': -2, 'status': "ERRO"}))
 
 # Задача 3: Видалення дублікатів (for / continue)
 def remove_consecutive_duplicates(data: list) -> list:

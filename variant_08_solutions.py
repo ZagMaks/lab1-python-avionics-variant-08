@@ -6,14 +6,18 @@
 
 # Задача 1: Захист від звалювання (Stall Warning)
 def stall_warning(alpha: float) -> str:
+    a = ["Попередження: Звалювання!", "Увага: Наближення до критичного кута", "Політ штатний"]
+    k = 0
     if alpha > 15.0:
-        return "Попередження: Звалювання!"
+        k = 0
     elif alpha > 10.0:
-        return "Увага: Наближення до критичного кута"
+        k = 1
     else:
-        return "Політ штатний"
-
-
+        k = 2
+    return a[k]
+print(stall_warning(20))
+print(stall_warning(13))
+print(stall_warning(2))
 # Задача 2: Обробка відповідей вимірювачів (match-case)
 def process_sensor_response(response: dict) -> str:
     match response["status"]:
